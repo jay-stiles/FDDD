@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwnd5m7ise3bp"]
+
+[ext_resource type="FontFile" uid="uid://dxpid4lky70cl" path="res://Assets/Roboto-Regular.ttf" id="1_2f0jk"]
+[ext_resource type="Texture2D" uid="uid://bwmxsdxurybda" path="res://Assets/button_reg_gradient.tres" id="1_mwbtx"]
+[ext_resource type="Texture2D" uid="uid://1242djtb6l51" path="res://Assets/button_pressed_gradient.tres" id="2_0cc2d"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ypynn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl72s"]
+bg_color = Color(0.823529, 0.827451, 0.827451, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 46
+corner_radius_top_right = 46
+corner_radius_bottom_right = 46
+corner_radius_bottom_left = 46
+corner_detail = 20
+shadow_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8u2k"]
+font = ExtResource("1_2f0jk")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(1, 1, 1, 0)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w4m4b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc7ak"]
+bg_color = Color(0.823529, 0.827451, 0.827451, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 46
+corner_radius_top_right = 46
+corner_radius_bottom_right = 46
+corner_radius_bottom_left = 46
+corner_detail = 20
+shadow_size = 2
+
+[node name="BoxInfoButton" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -93.0
+offset_right = 312.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_mwbtx")
+texture_pressed = ExtResource("2_0cc2d")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Panel2" type="Panel" parent="TextureButton"]
+material = SubResource("CanvasItemMaterial_ypynn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -47.0
+offset_right = 157.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_tl72s")
+
+[node name="BoxInfo Label" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -22.5
+offset_right = 89.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Box Info"
+label_settings = SubResource("LabelSettings_w8u2k")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="TextureButton"]
+visible = false
+material = SubResource("CanvasItemMaterial_w4m4b")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -93.0
+offset_right = 187.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc7ak")

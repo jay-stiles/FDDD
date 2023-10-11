@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxee64dg3j66p"]
+
+[ext_resource type="FontFile" uid="uid://dxpid4lky70cl" path="res://Assets/Roboto-Regular.ttf" id="1_7rjfe"]
+
+[sub_resource type="Gradient" id="Gradient_f8amx"]
+colors = PackedColorArray(0.301961, 0.0784314, 0.54902, 1, 0.301961, 0.0784314, 0.54902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uxi3o"]
+gradient = SubResource("Gradient_f8amx")
+width = 375
+height = 186
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w4m4b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc7ak"]
+bg_color = Color(0.301961, 0.0784314, 0.54902, 1)
+corner_radius_top_left = 93
+corner_radius_top_right = 93
+corner_radius_bottom_right = 93
+corner_radius_bottom_left = 93
+corner_detail = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8u2k"]
+font = ExtResource("1_7rjfe")
+font_size = 35
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0)
+shadow_offset = Vector2(2, 2)
+
+[node name="BoxInfoButton(OBS)" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -93.0
+offset_right = 187.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("GradientTexture2D_uxi3o")
+ignore_texture_size = true
+
+[node name="Panel" type="Panel" parent="TextureButton"]
+material = SubResource("CanvasItemMaterial_w4m4b")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -93.0
+offset_right = 187.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc7ak")
+
+[node name="BoxInfo" type="Label" parent="TextureButton/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -22.5
+offset_right = 89.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Box Info    "
+label_settings = SubResource("LabelSettings_w8u2k")

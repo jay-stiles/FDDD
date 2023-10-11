@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7w2phpf1va6c"]
+
+[ext_resource type="Script" path="res://Screens/ScreenScripts/MainScreen.gd" id="1_xkhjt"]
+[ext_resource type="Texture2D" uid="uid://d3nqcd07hc8lf" path="res://Assets/whiteFEDex.png" id="2_0xavh"]
+[ext_resource type="PackedScene" uid="uid://bhvhclerm4nbo" path="res://Assets/overview_button.tscn" id="3_ut7vl"]
+[ext_resource type="PackedScene" uid="uid://dwnd5m7ise3bp" path="res://Assets/box_info_button2.tscn" id="4_qal20"]
+[ext_resource type="PackedScene" uid="uid://cqha5uvvm4fip" path="res://Assets/statistics_button.tscn" id="5_d871m"]
+[ext_resource type="PackedScene" uid="uid://dohkt5mjb6p12" path="res://Assets/account_icon.tscn" id="6_3qc1u"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.255859
+offset_bottom = 0.143921
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xkhjt")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background"]
+layer = -15
+
+[node name="Background_White" type="ColorRect" parent="Background/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TopBar"]
+
+[node name="ColorRect" type="ColorRect" parent="TopBar/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1254.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.301961, 0.0784314, 0.54902, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 500
+alignment = 1
+
+[node name="WhiteFeDex" type="Sprite2D" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer"]
+z_index = 1
+position = Vector2(276, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_0xavh")
+
+[node name="OverviewButton" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer" instance=ExtResource("3_ut7vl")]
+layout_mode = 2
+
+[node name="BoxInfoButton" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer" instance=ExtResource("4_qal20")]
+layout_mode = 2
+
+[node name="StatisticsButton" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer" instance=ExtResource("5_d871m")]
+layout_mode = 2
+
+[node name="AccountIcon" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer" instance=ExtResource("6_3qc1u")]
+position = Vector2(1248, 496)
+
+[node name="BoxContainer" type="BoxContainer" parent="TopBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(807, 104)
+
+[node name="ScreenResTest" type="Sprite2D" parent="TopBar"]
+visible = false
+z_index = 1
+position = Vector2(2404, 1412)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_0xavh")

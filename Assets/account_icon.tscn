@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dohkt5mjb6p12"]
+
+[ext_resource type="Texture2D" uid="uid://ulw26wkikgol" path="res://Assets/account_Icon.png" id="1_mivnh"]
+
+[node name="AccountIcon" type="Sprite2D"]
+position = Vector2(162, 170)
+texture = ExtResource("1_mivnh")

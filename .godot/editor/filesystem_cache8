@@ -1,0 +1,25 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1696968621
+icon.svg::CompressedTexture2D::6460639037046111113::1696363197::1696363204::1::::<><>::
+::res://Assets/::1696968621
+account_Icon.png::CompressedTexture2D::1427870681006596623::1696968604::1696968621::1::::<><>::
+Background.png::CompressedTexture2D::8625819827711189017::1696383800::1696383980::1::::<><>::
+box_info_button2.tscn::PackedScene::8730489926815909089::1696965057::0::1::::<><>::uid://dxpid4lky70cl::::res://Assets/Roboto-Regular.ttf<>uid://bwmxsdxurybda::::res://Assets/button_reg_gradient.tres<>uid://1242djtb6l51::::res://Assets/button_pressed_gradient.tres
+box_info_button.tscn::PackedScene::4009321354088190641::1696953702::0::1::::<><>::uid://dxpid4lky70cl
+button_pressed_gradient.tres::GradientTexture2D::1882457315513247338::1696965057::0::1::::<><>::
+button_reg_gradient.tres::GradientTexture2D::3956776605935370362::1696965057::0::1::::<><>::
+fedex-logo-png-transparent.png::Image::7090137862426588445::1696384921::1696388244::1::::<><>::
+fedexLogo1.png::CompressedTexture2D::7247787402624283925::1696388321::1696388321::1::::<><>::
+icon_alert_purple_lg.png::CompressedTexture2D::9164803332326633318::1696968604::1696968621::1::::<><>::
+icon_courier_purple_lg.png::CompressedTexture2D::1440187095818831134::1696968604::1696968621::1::::<><>::
+overview_button.gd::GDScript::-1::1696966585::0::1::::<>Control<>::
+overview_button.tscn::PackedScene::2921523697257420460::1696965057::0::1::::<><>::uid://bwmxsdxurybda::::res://Assets/button_reg_gradient.tres<>uid://dxpid4lky70cl::::res://Assets/Roboto-Regular.ttf<>uid://1242djtb6l51::::res://Assets/button_pressed_gradient.tres
+Roboto-Regular.ttf::FontFile::8805063755046506803::1696530219::1696530220::1::::<><>::
+statistics_button.tscn::PackedScene::5910368167569507003::1696965057::0::1::::<><>::uid://dxpid4lky70cl::::res://Assets/Roboto-Regular.ttf<>uid://bwmxsdxurybda::::res://Assets/button_reg_gradient.tres<>uid://1242djtb6l51::::res://Assets/button_pressed_gradient.tres
+whiteFEDex.png::CompressedTexture2D::9152361824872626111::1696389101::1696389102::1::::<><>::
+::res://Assets/Button Scripting/::1696968621
+::res://Screens/::1696965057
+MainScreen.tscn::PackedScene::4679546527510985928::1696965057::0::1::::<><>::res://Screens/ScreenScripts/MainScreen.gd<>uid://d3nqcd07hc8lf::::res://Assets/whiteFEDex.png<>uid://bhvhclerm4nbo::::res://Assets/overview_button.tscn<>uid://dwnd5m7ise3bp::::res://Assets/box_info_button2.tscn<>uid://cqha5uvvm4fip::::res://Assets/statistics_button.tscn
+settings_screen.tscn::PackedScene::4126341102224409511::1696965057::0::1::::<><>::uid://du5n80d6no2nt::::res://Assets/Background.png
+::res://Screens/ScreenScripts/::1696387149
+MainScreen.gd::GDScript::-1::1696387149::0::1::::<>Control<>::
