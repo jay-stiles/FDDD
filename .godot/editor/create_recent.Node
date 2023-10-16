@@ -1,5 +1,7 @@
-Label
+LinkButton
+HBoxContainer
 Panel
+Label
 ColorRect
 TextureButton
 Button
@@ -8,6 +10,5 @@ Node
 Control
 Container
 BoxContainer
-HBoxContainer
 ParallaxBackground
 Window

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjv5hu7m68q0q"]
+
+[ext_resource type="Texture2D" uid="uid://bo5yneh3nmvb6" path="res://ExtraAssets/whiteFEDex.png" id="1_rtacs"]
+
+[node name="FedExLinkButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2060.0
+offset_bottom = -1300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 140.0
+underline = 1
+uri = "fedex.com"
+
+[node name="WhiteFeDex" type="Sprite2D" parent="LinkButton"]
+position = Vector2(250, 70)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rtacs")

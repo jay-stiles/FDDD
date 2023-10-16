@@ -3,5 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://ulw26wkikgol" path="res://Assets/account_Icon.png" id="1_mivnh"]
 
 [node name="AccountIcon" type="Sprite2D"]
-position = Vector2(162, 170)
+self_modulate = Color(0, 0, 0, 1)
 texture = ExtResource("1_mivnh")

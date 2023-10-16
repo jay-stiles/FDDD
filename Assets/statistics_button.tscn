@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqha5uvvm4fip"]
+[gd_scene load_steps=11 format=3 uid="uid://cqha5uvvm4fip"]
 
 [ext_resource type="FontFile" uid="uid://dxpid4lky70cl" path="res://Assets/Roboto-Regular.ttf" id="1_m0pke"]
 [ext_resource type="Texture2D" uid="uid://bwmxsdxurybda" path="res://Assets/button_reg_gradient.tres" id="1_wvi37"]
@@ -35,29 +35,33 @@ corner_radius_bottom_right = 93
 corner_radius_bottom_left = 93
 corner_detail = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1je1"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 5
+corner_detail = 12
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyok6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 5
+corner_detail = 12
+shadow_size = 1
+
 [node name="StatisticsButton" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -93.0
+offset_right = -2310.0
+offset_bottom = -1347.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -187.5
-offset_top = -93.0
-offset_right = 312.5
-offset_bottom = 93.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 186.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("1_wvi37")
@@ -116,3 +120,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_gosxc")
+
+[node name="PanelL" type="Panel" parent="TextureButton"]
+clip_contents = true
+offset_right = 5.0
+offset_bottom = 186.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1je1")
+
+[node name="PanelR" type="Panel" parent="TextureButton"]
+clip_contents = true
+offset_left = 495.0
+offset_right = 500.0
+offset_bottom = 186.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_pyok6")

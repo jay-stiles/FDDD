@@ -5,13 +5,6 @@
 [ext_resource type="FontFile" uid="uid://dxpid4lky70cl" path="res://Assets/Roboto-Regular.ttf" id="1_t8njr"]
 [ext_resource type="Texture2D" uid="uid://1242djtb6l51" path="res://Assets/button_pressed_gradient.tres" id="2_eag7m"]
 
-[sub_resource type="Gradient" id="Gradient_w57ta"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yspsy"]
-gradient = SubResource("Gradient_w57ta")
-width = 500
-height = 186
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w4m4b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc7ak"]
@@ -32,38 +25,38 @@ shadow_size = 0
 shadow_color = Color(1, 1, 1, 0)
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nenej"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 5
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i05dv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 5
+corner_detail = 12
+
 [node name="OverviewButton" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 400.0
-offset_bottom = 186.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -93.0
+offset_right = -2310.0
+offset_bottom = -1347.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(250, 93)
 script = ExtResource("1_3irkf")
 
 [node name="TextureButtonO" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -187.5
-offset_top = -93.0
-offset_right = 312.5
-offset_bottom = 93.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 186.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("1_gop7j")
 texture_pressed = ExtResource("2_eag7m")
-texture_hover = SubResource("GradientTexture2D_yspsy")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -100,6 +93,30 @@ grow_vertical = 2
 text = "Overview"
 label_settings = SubResource("LabelSettings_w8u2k")
 horizontal_alignment = 1
+
+[node name="PanelR2" type="Panel" parent="TextureButtonO"]
+clip_contents = true
+offset_right = 5.0
+offset_bottom = 186.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_nenej")
+
+[node name="PanelL" type="Panel" parent="TextureButtonO"]
+clip_contents = true
+layout_mode = 0
+offset_left = 5.0
+offset_right = 10.0
+offset_bottom = 186.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_i05dv")
+
+[node name="PanelR" type="Panel" parent="TextureButtonO"]
+clip_contents = true
+offset_left = 495.0
+offset_right = 500.0
+offset_bottom = 186.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_nenej")
 
 [connection signal="mouse_entered" from="TextureButtonO" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButtonO" to="." method="_on_texture_button_mouse_exited"]

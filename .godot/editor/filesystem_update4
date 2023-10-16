@@ -5,5 +5,5 @@ res://Screens/settings_screen.tscn
 res://Assets/overview_button.tscn
 res://Assets/box_info_button2.tscn
 res://Assets/statistics_button.tscn
-res://Assets/overview_button.gd
 res://Assets/account_icon.tscn
+res://Assets/fed_ex_link_button.tscn
