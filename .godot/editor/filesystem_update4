@@ -1,9 +1,9 @@
-res://Screens/MainScreen.tscn
+res://Screens/overview_screen.tscn
 res://Assets/button_reg_gradient.tres
 res://Assets/button_pressed_gradient.tres
+res://Screens/MainScreen.tscn
 res://Screens/settings_screen.tscn
 res://Assets/overview_button.tscn
-res://Assets/box_info_button2.tscn
-res://Assets/statistics_button.tscn
-res://Assets/account_icon.tscn
-res://Assets/fed_ex_link_button.tscn
+res://Assets/account_dropdown.tscn
+res://Assets/alert_widget.tscn
+res://Assets/box_info_box.tscn

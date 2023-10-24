@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb3ky5mgg87t2"]
+
+[ext_resource type="Script" path="res://Screens/settings_screen.gd" id="1_b5x2q"]
+[ext_resource type="PackedScene" uid="uid://cj4mayo5x4f57" path="res://Assets/box_info_box.tscn" id="2_4xp4x"]
+[ext_resource type="Texture2D" uid="uid://b8l4xk8p76rlg" path="res://ExtraAssets/Map2.png" id="2_q2dny"]
+
+[node name="OverviewScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_b5x2q")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="SettingsCanvas" type="CanvasLayer" parent="Background"]
+layer = -15
+
+[node name="ColorRect" type="ColorRect" parent="Background/SettingsCanvas"]
+offset_top = 186.0
+offset_right = 2560.0
+offset_bottom = 1440.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsCanvas/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="Background/SettingsCanvas/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer"]
+custom_minimum_size = Vector2(0, 1254)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer/ScrollContainer"]
+custom_minimum_size = Vector2(750, 1254)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BoxInfoBox" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_4xp4x")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="VScrollBar" type="VScrollBar" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer/ScrollContainer/VBoxContainer/BoxInfoBox"]
+visible = false
+layout_mode = 2
+offset_right = 8.0
+offset_bottom = 1254.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Background/SettingsCanvas/ColorRect/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_q2dny")
+expand_mode = 3
+stretch_mode = 5

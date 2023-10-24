@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj4mayo5x4f57"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho7ad"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vjdu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86icm"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="BoxInfoBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1810.0
+offset_bottom = -1240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BoxInfoBacker" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 750.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ho7ad")
+
+[node name="GridContainer" type="GridContainer" parent="BoxInfoBacker"]
+layout_mode = 0
+offset_right = 750.0
+offset_bottom = 200.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Panel_HLine" type="Panel" parent="BoxInfoBacker"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -1.5
+offset_right = 625.0
+offset_bottom = 1.5
+grow_vertical = 2
+pivot_offset = Vector2(375, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vjdu")
+
+[node name="Panel_VLine1" type="Panel" parent="BoxInfoBacker"]
+layout_mode = 0
+offset_left = 625.0
+offset_right = 628.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_86icm")

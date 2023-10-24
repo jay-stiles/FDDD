@@ -37,6 +37,7 @@ corner_detail = 12
 
 [node name="OverviewButton" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -250.0
@@ -47,6 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(250, 93)
 script = ExtResource("1_3irkf")
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButtonO" type="TextureButton" parent="."]
 layout_mode = 0
@@ -96,6 +98,7 @@ horizontal_alignment = 1
 
 [node name="PanelR2" type="Panel" parent="TextureButtonO"]
 clip_contents = true
+layout_mode = 0
 offset_right = 5.0
 offset_bottom = 186.0
 mouse_filter = 1
@@ -112,6 +115,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_i05dv")
 
 [node name="PanelR" type="Panel" parent="TextureButtonO"]
 clip_contents = true
+layout_mode = 0
 offset_left = 495.0
 offset_right = 500.0
 offset_bottom = 186.0
@@ -120,3 +124,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nenej")
 
 [connection signal="mouse_entered" from="TextureButtonO" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButtonO" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButtonO" to="." method="_on_texture_button_o_pressed"]
+[connection signal="toggled" from="TextureButtonO" to="." method="_on_overview_toggled"]

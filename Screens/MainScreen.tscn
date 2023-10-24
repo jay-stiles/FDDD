@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7w2phpf1va6c"]
+[gd_scene load_steps=14 format=3 uid="uid://b7w2phpf1va6c"]
 
 [ext_resource type="Script" path="res://Screens/ScreenScripts/MainScreen.gd" id="1_xkhjt"]
 [ext_resource type="Texture2D" uid="uid://d3nqcd07hc8lf" path="res://Assets/whiteFEDex.png" id="2_0xavh"]
 [ext_resource type="PackedScene" uid="uid://cjv5hu7m68q0q" path="res://Assets/fed_ex_link_button.tscn" id="3_22fe7"]
 [ext_resource type="PackedScene" uid="uid://bhvhclerm4nbo" path="res://Assets/overview_button.tscn" id="3_ut7vl"]
+[ext_resource type="PackedScene" uid="uid://b6nchi6ktph52" path="res://Assets/spacer_93x186.tscn" id="3_yl71x"]
+[ext_resource type="PackedScene" uid="uid://shvad6b3t4qk" path="res://Assets/spacer_186x_186.tscn" id="4_6ia3y"]
+[ext_resource type="Script" path="res://Screens/HBoxTrio.gd" id="4_i4u11"]
 [ext_resource type="PackedScene" uid="uid://dwnd5m7ise3bp" path="res://Assets/box_info_button2.tscn" id="4_qal20"]
 [ext_resource type="PackedScene" uid="uid://cqha5uvvm4fip" path="res://Assets/statistics_button.tscn" id="5_d871m"]
+[ext_resource type="PackedScene" uid="uid://bqbuk2urh2yyg" path="res://Assets/alert_widget.tscn" id="8_0b82v"]
+[ext_resource type="PackedScene" uid="uid://dy04awmaa3x4l" path="res://Assets/account_dropdown.tscn" id="8_2rwn5"]
+[ext_resource type="PackedScene" uid="uid://by13h805dlk44" path="res://Screens/settings_screen.tscn" id="12_c1auo"]
+[ext_resource type="PackedScene" uid="uid://cb3ky5mgg87t2" path="res://Screens/overview_screen.tscn" id="13_oo8xa"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -16,6 +23,7 @@ offset_right = 0.255859
 offset_bottom = 0.143921
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_xkhjt")
 
 [node name="Background" type="Node" parent="."]
@@ -43,55 +51,70 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.301961, 0.0784314, 0.54902, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/CanvasLayer/ColorRect"]
-visible = false
+[node name="HBoxTopBar" type="HBoxContainer" parent="TopBar/CanvasLayer/ColorRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_right = 500.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 186.0
 grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 500
+
+[node name="HBoxFedExLogo" type="HBoxContainer" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 600
 alignment = 1
 
-[node name="WhiteFeDex" type="Sprite2D" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer"]
-visible = false
-z_index = 1
-position = Vector2(274, 0)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_0xavh")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="TopBar/CanvasLayer/ColorRect"]
-layout_mode = 0
-offset_right = 2560.0
-offset_bottom = 186.0
-theme_override_constants/separation = 500
-
-[node name="FedExLinkButton" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer2" instance=ExtResource("3_22fe7")]
-layout_mode = 2
-size_flags_horizontal = 1
-
-[node name="OverviewButton" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer2" instance=ExtResource("3_ut7vl")]
+[node name="FedExLinkButton" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxFedExLogo" instance=ExtResource("3_22fe7")]
 layout_mode = 2
 
-[node name="BoxInfoButton" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer2" instance=ExtResource("4_qal20")]
+[node name="Spacer93x186" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxFedExLogo" instance=ExtResource("3_yl71x")]
 layout_mode = 2
 
-[node name="StatisticsButton" parent="TopBar/CanvasLayer/ColorRect/HBoxContainer2" instance=ExtResource("5_d871m")]
+[node name="HBoxTrio" type="HBoxContainer" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 250
+script = ExtResource("4_i4u11")
+
+[node name="OverviewButton" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" instance=ExtResource("3_ut7vl")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer186x188" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" instance=ExtResource("4_6ia3y")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxInfoButton" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" instance=ExtResource("4_qal20")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer186x189" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" instance=ExtResource("4_6ia3y")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatisticsButton" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" instance=ExtResource("5_d871m")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxAccount" type="HBoxContainer" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 93
+
+[node name="AlertWidget" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxAccount" instance=ExtResource("8_0b82v")]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="AccountDropdown" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxAccount" instance=ExtResource("8_2rwn5")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="Spacer93x186" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxAccount" instance=ExtResource("3_yl71x")]
 layout_mode = 2
 
-[node name="BoxContainer" type="BoxContainer" parent="TopBar"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(807, 104)
+[node name="Spacer93x187" parent="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxAccount" instance=ExtResource("3_yl71x")]
+layout_mode = 2
 
 [node name="ScreenResTest" type="Sprite2D" parent="TopBar"]
 visible = false
@@ -99,3 +122,17 @@ z_index = 1
 position = Vector2(2404, 1412)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_0xavh")
+
+[node name="SettingsScreen" parent="." instance=ExtResource("12_c1auo")]
+layout_mode = 1
+
+[node name="OverviewScreen" parent="." instance=ExtResource("13_oo8xa")]
+layout_mode = 1
+
+[connection signal="overview_pressed" from="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio/OverviewButton" to="." method="_on_overview_button_overview_pressed"]
+[connection signal="overview_pressed" from="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio/OverviewButton" to="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" method="_on_overview_button_overview_pressed"]
+[connection signal="boxInfo_Pressed" from="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio/BoxInfoButton" to="." method="_on_box_info_button_box_info_pressed"]
+[connection signal="boxInfo_Pressed" from="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio/BoxInfoButton" to="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" method="_on_box_info_button_box_info_pressed"]
+[connection signal="statistics_Pressed" from="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio/StatisticsButton" to="." method="_on_statistics_button_statistics_pressed"]
+[connection signal="statistics_Pressed" from="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio/StatisticsButton" to="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxTrio" method="_on_statistics_button_statistics_pressed"]
+[connection signal="setting_Pressed" from="TopBar/CanvasLayer/ColorRect/HBoxTopBar/HBoxAccount/AccountDropdown" to="." method="_on_account_dropdown_setting_pressed"]

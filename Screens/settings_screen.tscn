@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://by13h805dlk44"]
+[gd_scene load_steps=3 format=3 uid="uid://by13h805dlk44"]
 
-[ext_resource type="Texture2D" uid="uid://du5n80d6no2nt" path="res://Assets/Background.png" id="1_hf5n5"]
+[ext_resource type="Script" path="res://Screens/settings_screen.gd" id="1_l043h"]
+[ext_resource type="FontFile" uid="uid://dxpid4lky70cl" path="res://Assets/Roboto-Regular.ttf" id="2_gkxqf"]
 
 [node name="SettingsScreen" type="Control"]
 layout_mode = 3
@@ -9,15 +10,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_l043h")
 
 [node name="Background" type="Node" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Background"]
+[node name="SettingsCanvas" type="CanvasLayer" parent="Background"]
 layer = -15
+visible = false
 
-[node name="Background" type="Sprite2D" parent="Background/CanvasLayer"]
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("1_hf5n5")
-offset = Vector2(960, 540)
-region_rect = Rect2(6.232, 5.533, 1920, 1080)
-metadata/_edit_lock_ = true
+[node name="ColorRect" type="ColorRect" parent="Background/SettingsCanvas"]
+offset_top = 186.0
+offset_right = 2560.0
+offset_bottom = 1440.0
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsCanvas/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -22.0
+offset_right = 259.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SettingsCanvas/ColorRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Label" type="Label" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gkxqf")
+theme_override_font_sizes/font_size = 34
+text = "Fullscreen Mode:"
+
+[node name="Button" type="Button" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_default_cursor_shape = 2
+text = "        "
+
+[connection signal="pressed" from="Background/SettingsCanvas/ColorRect/HBoxContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwnd5m7ise3bp"]
+[gd_scene load_steps=12 format=3 uid="uid://dwnd5m7ise3bp"]
 
 [ext_resource type="FontFile" uid="uid://dxpid4lky70cl" path="res://Assets/Roboto-Regular.ttf" id="1_2f0jk"]
+[ext_resource type="Script" path="res://Assets/boxinfo_button.gd" id="1_bk3if"]
 [ext_resource type="Texture2D" uid="uid://bwmxsdxurybda" path="res://Assets/button_reg_gradient.tres" id="1_mwbtx"]
 [ext_resource type="Texture2D" uid="uid://1242djtb6l51" path="res://Assets/button_pressed_gradient.tres" id="2_0cc2d"]
 
@@ -50,6 +51,7 @@ shadow_size = 1
 
 [node name="BoxInfoButton" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -250.0
@@ -59,6 +61,7 @@ offset_bottom = -1347.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(250, 93)
+script = ExtResource("1_bk3if")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -125,6 +128,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jc7ak")
 
 [node name="PanelL" type="Panel" parent="TextureButton"]
 clip_contents = true
+layout_mode = 0
 offset_right = 5.0
 offset_bottom = 186.0
 mouse_filter = 1
@@ -132,8 +136,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ckr4j")
 
 [node name="PanelR" type="Panel" parent="TextureButton"]
 clip_contents = true
+layout_mode = 0
 offset_left = 495.0
 offset_right = 500.0
 offset_bottom = 186.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_0ce8i")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_boxinfo_top_toggled"]

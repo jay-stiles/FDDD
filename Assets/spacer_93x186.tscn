@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b6nchi6ktph52"]
+
+[node name="Spacer93x186" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -93.0
+offset_right = -2513.0
+offset_bottom = -1347.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

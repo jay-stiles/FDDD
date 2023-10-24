@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy04awmaa3x4l"]
+
+[ext_resource type="Script" path="res://Assets/account_dropdown.gd" id="1_cii2n"]
+[ext_resource type="Texture2D" uid="uid://bkb8cc47qe88t" path="res://ExtraAssets/Account_White.png" id="1_t0hqa"]
+
+[node name="AccountDropdown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -93.0
+offset_right = -2467.0
+offset_bottom = -1347.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(93, 93)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_cii2n")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 186.0
+offset_bottom = 186.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(93, 93)
+tooltip_text = "Account, Settings, Exit"
+item_count = 3
+allow_reselect = true
+popup/item_0/text = "Account"
+popup/item_0/id = 0
+popup/item_1/text = "Settings"
+popup/item_1/id = 1
+popup/item_2/text = "Log Out/Exit"
+popup/item_2/id = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 186.0
+offset_bottom = 186.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(93, 93)
+mouse_filter = 2
+texture = ExtResource("1_t0hqa")
+expand_mode = 1
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
