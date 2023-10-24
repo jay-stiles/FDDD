@@ -1,4 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj4mayo5x4f57"]
+[gd_scene load_steps=10 format=3 uid="uid://cj4mayo5x4f57"]
+
+[ext_resource type="Texture2D" uid="uid://hlhu3qu64okt" path="res://ExtraAssets/batteryBlack.png" id="1_sw1ij"]
+[ext_resource type="Texture2D" uid="uid://rbadsa1pe88r" path="res://ExtraAssets/Box.png" id="2_f81ur"]
+[ext_resource type="Texture2D" uid="uid://c8jllyydd07ed" path="res://ExtraAssets/alert_white.png" id="3_7un2j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho7ad"]
 bg_color = Color(1, 1, 1, 1)
@@ -12,12 +16,29 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 corner_detail = 12
+shadow_color = Color(1, 0.384314, 0, 0.423529)
+shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vjdu"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86icm"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdgy3"]
+bg_color = Color(0.168627, 0.670588, 0, 1)
+corner_radius_top_right = 97
+corner_radius_bottom_right = 97
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlgy3"]
+bg_color = Color(0.862745, 0.835294, 0, 1)
+corner_radius_top_right = 97
+corner_radius_bottom_right = 97
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlsf1"]
+bg_color = Color(0.854902, 0.0627451, 0, 1)
+corner_radius_top_right = 97
+corner_radius_bottom_right = 97
 
 [node name="BoxInfoBox" type="Control"]
 layout_mode = 3
@@ -28,6 +49,7 @@ offset_right = -1810.0
 offset_bottom = -1240.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(375, 100)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -36,14 +58,6 @@ layout_mode = 0
 offset_right = 750.0
 offset_bottom = 200.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ho7ad")
-
-[node name="GridContainer" type="GridContainer" parent="BoxInfoBacker"]
-layout_mode = 0
-offset_right = 750.0
-offset_bottom = 200.0
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 2
 
 [node name="Panel_HLine" type="Panel" parent="BoxInfoBacker"]
 layout_mode = 1
@@ -63,3 +77,193 @@ offset_left = 625.0
 offset_right = 628.0
 offset_bottom = 200.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_86icm")
+
+[node name="Panel_VLine2" type="Panel" parent="BoxInfoBacker"]
+layout_mode = 0
+offset_left = 350.0
+offset_right = 353.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_86icm")
+
+[node name="Panel_VLine5" type="Panel" parent="BoxInfoBacker"]
+offset_left = 532.0
+offset_right = 535.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_86icm")
+
+[node name="Panel_VLine7" type="Panel" parent="BoxInfoBacker"]
+offset_left = 532.0
+offset_top = 100.0
+offset_right = 535.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_86icm")
+
+[node name="HBoxNumber" type="HBoxContainer" parent="BoxInfoBacker"]
+clip_contents = true
+layout_mode = 0
+offset_top = 3.0
+offset_right = 350.0
+offset_bottom = 103.0
+
+[node name="Spacer" type="Label" parent="BoxInfoBacker/HBoxNumber"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "        #:"
+
+[node name="BoxNumberLabel" type="Label" parent="BoxInfoBacker/HBoxNumber"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "BoxNumber"
+
+[node name="HPickupTime" type="HBoxContainer" parent="BoxInfoBacker"]
+clip_contents = true
+layout_mode = 0
+offset_top = 100.0
+offset_right = 350.0
+offset_bottom = 200.0
+
+[node name="Spacer" type="Label" parent="BoxInfoBacker/HPickupTime"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "      	 	     "
+
+[node name="PickupTimeLabel" type="Label" parent="BoxInfoBacker/HPickupTime"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "PickupTime"
+
+[node name="HBatteryBox" type="HBoxContainer" parent="BoxInfoBacker"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 1.0
+offset_right = 533.0
+offset_bottom = 101.0
+
+[node name="BatteryIcon" type="TextureRect" parent="BoxInfoBacker/HBatteryBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_sw1ij")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HPercentBox" type="HBoxContainer" parent="BoxInfoBacker/HBatteryBox/BatteryIcon"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Percent" type="Label" parent="BoxInfoBacker/HBatteryBox/BatteryIcon/HPercentBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "86"
+
+[node name="Spacer" type="Label" parent="BoxInfoBacker/HBatteryBox/BatteryIcon/HPercentBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "%      "
+
+[node name="HParcelBox" type="HBoxContainer" parent="BoxInfoBacker"]
+offset_left = 353.0
+offset_top = 104.0
+offset_right = 533.0
+offset_bottom = 194.0
+
+[node name="ParcelIcon" type="TextureRect" parent="BoxInfoBacker/HParcelBox"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_f81ur")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Percent" type="Label" parent="BoxInfoBacker/HParcelBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "22"
+
+[node name="Spacer" type="Label" parent="BoxInfoBacker/HParcelBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "%  "
+
+[node name="BatteryColor" type="ColorRect" parent="BoxInfoBacker"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 3.0
+offset_right = 625.0
+offset_bottom = 99.0
+
+[node name="ParcelColor" type="ColorRect" parent="BoxInfoBacker"]
+offset_left = 535.0
+offset_top = 102.0
+offset_right = 625.0
+offset_bottom = 197.0
+
+[node name="AlertOK" type="Panel" parent="BoxInfoBacker"]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 3.0
+offset_right = 747.0
+offset_bottom = 197.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdgy3")
+
+[node name="AlertYellow" type="Panel" parent="BoxInfoBacker"]
+offset_left = 628.0
+offset_top = 3.0
+offset_right = 747.0
+offset_bottom = 197.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tlgy3")
+
+[node name="TextureRect" type="TextureRect" parent="BoxInfoBacker/AlertYellow"]
+self_modulate = Color(1, 0.384314, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -97.0
+offset_right = 45.5
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7un2j")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="AlertRed" type="Panel" parent="BoxInfoBacker"]
+offset_left = 628.0
+offset_top = 3.0
+offset_right = 747.0
+offset_bottom = 197.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlsf1")
+
+[node name="TextureRect2" type="TextureRect" parent="BoxInfoBacker/AlertRed"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -97.0
+offset_right = 45.5
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7un2j")
+expand_mode = 4
+stretch_mode = 5

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb3ky5mgg87t2"]
+[gd_scene load_steps=6 format=3 uid="uid://cb3ky5mgg87t2"]
 
 [ext_resource type="Script" path="res://Screens/settings_screen.gd" id="1_b5x2q"]
 [ext_resource type="PackedScene" uid="uid://cj4mayo5x4f57" path="res://Assets/box_info_box.tscn" id="2_4xp4x"]
 [ext_resource type="Texture2D" uid="uid://b8l4xk8p76rlg" path="res://ExtraAssets/Map2.png" id="2_q2dny"]
+[ext_resource type="Texture2D" uid="uid://b6ntp4u13x1pp" path="res://ExtraAssets/FinderBar.png" id="4_i78da"]
+[ext_resource type="Texture2D" uid="uid://cslhkbbvtlo66" path="res://ExtraAssets/PlusMinus.png" id="5_dkp8i"]
 
 [node name="OverviewScreen" type="Control"]
 layout_mode = 3
@@ -42,6 +44,8 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(0, 1254)
 layout_mode = 2
 size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer/ScrollContainer"]
 custom_minimum_size = Vector2(750, 1254)
@@ -52,17 +56,40 @@ size_flags_vertical = 3
 [node name="BoxInfoBox" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_4xp4x")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="VScrollBar" type="VScrollBar" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer/ScrollContainer/VBoxContainer/BoxInfoBox"]
-visible = false
+[node name="BoxInfoBox2" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/FlowContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_4xp4x")]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-offset_right = 8.0
-offset_bottom = 1254.0
-size_flags_vertical = 3
+size_flags_horizontal = 1
+size_flags_vertical = 1
 
-[node name="TextureRect" type="TextureRect" parent="Background/SettingsCanvas/ColorRect/HBoxContainer"]
+[node name="MapTexture" type="TextureRect" parent="Background/SettingsCanvas/ColorRect/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_q2dny")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/MapTexture"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 678.0
+offset_bottom = 138.0
+texture = ExtResource("4_i78da")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/SettingsCanvas/ColorRect/HBoxContainer/MapTexture"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.395
+offset_top = -202.515
+offset_right = -30.3945
+offset_bottom = -21.515
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_dkp8i")
